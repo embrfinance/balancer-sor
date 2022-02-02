@@ -190,6 +190,7 @@ export class StablePool implements PoolBase {
             // All values should use 1e18 fixed point
             // i.e. 1USDC => 1e18 not 1e6
             const amtScaled = scale(amount, 18);
+            if (amtScaled.eq(0)) return ZERO;
 
             const amt = SDK.StableMath._calcOutGivenIn(
                 bnum(this.amp.toString()),
