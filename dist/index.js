@@ -12357,37 +12357,37 @@ var vaultAbi = [
 ];
 
 const WETHADDR = {
-    1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    1: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
     3: '0xdFCeA9088c8A88A76FF74892C1457C17dfeef9C1',
     4: '0x80dD2B80FbcFB06505A301d732322e987380EcD6',
     5: '0x9A1000D492d40bfccbc03f413A48F5B6516Ec0Fd',
     42: '0xdFCeA9088c8A88A76FF74892C1457C17dfeef9C1',
     137: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
     42161: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
-    250: '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
-    99: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    43113: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
+    43114: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
 };
 const MULTIADDR = {
-    1: '0xeefba1e63905ef1d7acba5a8513c70307c1ce441',
+    1: '0x653f3e6c7e2ae666c22e063d87a012c2f13ea416',
     3: '0x53c43764255c17bd724f74c4ef150724ac50a3ed',
     4: '0x42ad527de7d4e9d9d011ac45b31d8551f8fe9821',
     5: '0x3b2A02F22fCbc872AF77674ceD303eb269a46ce3',
     42: '0x2cc8688C5f75E365aaEEb4ea8D6a480405A48D2A',
     137: '0xa1B2b503959aedD81512C37e9dce48164ec6a94d',
     42161: '0x269ff446d9892c9e19082564df3f5e8741e190a1',
-    250: '0x09523Acc78Dd297Ae5Da00DdeBE6f10ebF784565',
-    99: '0xeefba1e63905ef1d7acba5a8513c70307c1ce441',
+    43113: '0x53FE8639203D5dfDF735C6f8949BD340Ed6800d5',
+    43114: '0x653f3e6c7e2ae666c22e063d87a012c2f13ea416',
 };
 const VAULTADDR = {
-    1: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
+    1: '0xad68ea482860cd7077a5D0684313dD3a9BC70fbB',
     3: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
     4: '0xF07513C68C55A31337E3b58034b176A15Dce16eD',
     5: '0x65748E8287Ce4B9E6D83EE853431958851550311',
     42: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
     137: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
     42161: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
-    250: '0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce',
-    99: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
+    43113: '0x9aed52F3074ba468c6ad17822b8833210868c31b',
+    43114: '0xad68ea482860cd7077a5D0684313dD3a9BC70fbB',
 };
 // Currently only used for Polygon
 // ID of USDC Connecting Pool & USDC token address
@@ -18813,6 +18813,8 @@ const Query = {
     137: queryWithOutLinear,
     42161: queryWithLinear,
     250: queryWithLinear,
+    43114: queryWithLinear,
+    43113: queryWithLinear,
 };
 // Returns all public pools
 function fetchSubgraphPools(subgraphUrl, chainId = 1) {
@@ -19603,7 +19605,8 @@ const getPlatformId = (chainId) => {
         1: 'ethereum',
         42: 'ethereum',
         137: 'polygon-pos',
-        42161: 'arbitrum-one',
+        43113: 'avalanche',
+        43114: 'avalanche',
     };
     return mapping[chainId.toString()] || 'ethereum';
 };
@@ -19615,6 +19618,8 @@ const getNativeAssetId = (chainId) => {
         // TODO: convert through ETH as intermediary
         137: '',
         42161: 'eth',
+        43113: 'avalanche-2',
+        43114: 'avalanche-2',
     };
     return mapping[chainId.toString()] || 'eth';
 };

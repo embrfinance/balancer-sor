@@ -5,7 +5,8 @@ const getPlatformId = (chainId: string | number): string => {
         '1': 'ethereum',
         '42': 'ethereum',
         '137': 'polygon-pos',
-        '42161': 'arbitrum-one',
+        '43113': 'avalanche',
+        '43114': 'avalanche',
     };
 
     return mapping[chainId.toString()] || 'ethereum';
@@ -19,6 +20,8 @@ const getNativeAssetId = (chainId: string | number): string => {
         // TODO: convert through ETH as intermediary
         '137': '',
         '42161': 'eth',
+        '43113': 'avalanche-2',
+        '43114': 'avalanche-2',
     };
 
     return mapping[chainId.toString()] || 'eth';
